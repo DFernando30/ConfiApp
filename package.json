@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "/vercel/path0/node_modules/.bin/vite build",
+    "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -32,4 +32,3 @@
     "vite": "4.5.0"
   }
 }
-
