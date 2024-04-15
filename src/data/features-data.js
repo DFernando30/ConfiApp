@@ -6,15 +6,15 @@ import {
 
 export const featuresData = [
   {
-    
+
     color: "blue-600",
     title: "Misión y visión",
-    icon:   CogIcon,
-    description: 
-
-      "Nuestra aplicación ofrece predefinir rutas . El padre crea y monitorea las rutas, mientras que el menor las sigue desde su dispositivo. Si se desvía, el padre recibe una notificación instantánea.",
- 
-    },
+    icon: CogIcon,
+    description: [
+      "Facilitar la supervisión y comunicación efectiva entre tutores y menores a su cargo, proporcionando una plataforma intuitiva y confiable ", 
+      "Convertirnos en la aplicación líder a nivel mundial en la protección y supervisión de menores, ofreciendo soluciones innovadoras y accesibles que promuevan la tranquilidad y confianza de las familias en su día a día.",
+    ],
+  },
   // {
   //   color: "gray",
   //   title: "De interés para ti",

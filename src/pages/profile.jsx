@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+
 import {Input, Avatar, Typography, Button, Card, Textarea, Checkbox} from "@material-tailwind/react";
 import {
     MapPinIcon, BriefcaseIcon, BuildingLibraryIcon,
@@ -228,12 +230,11 @@ export function Profile() {
     
     return (
         <>
-
             <section className="relative block h-[50vh]">
-                <Toaster/>
+                <Toaster />
                 <div
-                    className="bg-profile-background absolute top-0 h-full w-full bg-[url('/img/backi.png')] bg-cover bg-center scale-100"/>
-                <div className="absolute top-0 h-full w-full bg-black/60 bg-cover bg-center"/>
+                    className="bg-profile-background absolute top-0 h-full w-full bg-[url('/img/backi.png')] bg-cover bg-center scale-100" />
+                <div className="absolute top-0 h-full w-full bg-black/60 bg-cover bg-center" />
 
                 {/* Botón del menú */}
                 <span
@@ -386,6 +387,7 @@ export function Profile() {
                             </Typography>
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                                 {menores.map((menor) => (
+                                    
                                     <div key={menor._id} className="bg-gray-100 p-4 rounded-lg shadow-md">
                                         <Typography className="font-bold text-blueGray-700">
                                             {menor.nombres} {menor.apellidos}

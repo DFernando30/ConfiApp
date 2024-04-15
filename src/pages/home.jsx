@@ -1,4 +1,6 @@
-import React, {useState} from 'react';
+import { motion, useViewportScroll, useTransform } from 'framer-motion';
+
+import React, { useState } from 'react';
 
 import {
     Card,
@@ -11,10 +13,12 @@ import {
     Textarea,
     Checkbox,
 } from "@material-tailwind/react";
-import {FingerPrintIcon, UsersIcon} from "@heroicons/react/24/solid";
-import {PageTitle, Footer, DesaparecidosUpload} from "@/widgets/layout";
-import {FeatureCard, TeamCard} from "@/widgets/cards";
-import {featuresData, teamData, contactData} from "@/data";
+import { FingerPrintIcon, UsersIcon } from "@heroicons/react/24/solid";
+import { PageTitle, Footer, DesaparecidosUpload } from "@/widgets/layout";
+import { FeatureCard, TeamCard } from "@/widgets/cards";
+import { featuresData, teamData, contactData } from "@/data";
+
+
 
 
 
@@ -33,35 +37,73 @@ export function Home() {
     };
 
 
+    const { scrollYProgress } = useViewportScroll();
+    const scale = useTransform(scrollYProgress, [0, 1], [1, 1.2]);
+
+
     return (
         <>
             <div className="relative flex h-screen content-center items-center justify-center pt-16 pb-32">
-                <div className="absolute top-0 h-full w-full bg-[url('/img/background-5.png')] bg-cover bg-center"/>
-                <div className="absolute top-0 h-full w-full bg-black/60 bg-cover bg-center"/>
+
+                <motion.div
+                    style={{ scale }}
+                    className="absolute top-0 h-full w-full bg-[url('/img/background-5.png')] bg-cover bg-center"
+                />
+
+                <div className="absolute top-0 h-full w-full bg-black/60 bg-cover bg-center" />
                 <div className="max-w-8xl container relative mx-auto">
                     <div className="flex flex-wrap items-center">
                         <div className="ml-auto mr-auto w-full px-4 text-center lg:w-8/12">
-                            <Typography
-                                variant="h1"
-                                color="white"
-                                className="mb-6 font-black"
+                            <motion.div
+                                initial={{ opacity: 0, y: 50 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 1, ease: 'easeOut' }}
                             >
-                             Bienvenido a ConfiApp
-                            </Typography>
-                            <Typography variant="lead" color="white" className="opacity-80">
-                            Planifica las rutas para tus menores a cargo  <br />
-                            y mantén una comunicación constante con ellos en todo momento.
-                            </Typography>
+                                <Typography variant="h1" color="white" className="mb-6 font-black">
+                                    <motion.span
+                                        initial={{ scale: 0.8 }}
+                                        animate={{ scale: 1 }}
+                                        transition={{ duration: 0.5, ease: 'easeInOut' }}
+                                    >
+                                        Bienvenido a ConfiApp
+                                    </motion.span>
+                                </Typography>
+                            </motion.div>
 
-                                <br />
+                            <motion.div
+                                initial={{ opacity: 0, y: 50 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 1, ease: 'easeOut', delay: 0.5 }}
+                            >
+                                <Typography variant="lead" color="white" className="opacity-80">
+                                    <motion.span
+                                        initial={{ opacity: 0, x: -20 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.5 }}
+                                    >
+                                        Planifica las rutas para tus menores a cargo
+                                    </motion.span>
+                                    <br />
+                                    <motion.span
+                                        initial={{ opacity: 0, x: -20 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.7 }}
+                                    >
+                                        y mantén una comunicación constante con ellos en todo momento.
+                                    </motion.span>
+                                </Typography>
+                            </motion.div>
 
-                                <div className="flex justify-center">
-                            <a href="# " className="w-150">
-                                <Button variant="text" size="sm" fullWidth style={{ width:"150px", height:"50px", color: "#ffffff", borderRadius:"#000000", border: "2px solid #ffffff" }}>
-                                    Descargar App
-                                </Button>
-                            </a>
-                        </div>
+
+                            <br />
+
+                            <div className="flex justify-center">
+                                <a href="# " className="w-150">
+                                    <Button variant="text" size="sm" fullWidth style={{ width: "150px", height: "50px", color: "#ffffff", borderRadius: "#000000", border: "2px solid #ffffff" }}>
+                                        Descargar App
+                                    </Button>
+                                </a>
+                            </div>
 
                         </div>
                     </div>
@@ -70,67 +112,70 @@ export function Home() {
             <section className="-mt-32 bg-white px-4 pb-20 pt-4" style={{ background: "#f0f0f0" }}>
                 <div className="container mx-auto " >
                     <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-2 ">
-                        {featuresData.map(({color, title, icon, description}) => (
-                            <FeatureCard
+                        {featuresData.map(({ color, title, icon, description }, index) => (
+                            <motion.div
                                 key={title}
-                                color={color}
-                                title={title}
-                                
-                                icon={React.createElement(icon, {
-                                    
-                                    className: "w-5 h-5 text-white  ",
-                                })}
-                                description={description}
-                                
-                            />
+                                whileInView={{ opacity: 1, y: 0 }}
+                                initial={{ opacity: 0, y: 50 }}
+                                transition={{ duration: 0.6, delay: index * 0.2 }}
+                            >
+                                <FeatureCard
+                                    color={color}
+                                    title={title}
+                                    icon={React.createElement(icon, {
+                                        className: 'w-5 h-5 text-white',
+                                    })}
+                                    description={description}
+                                />
+                            </motion.div>
                         ))}
                     </div>
-<br />
-<br />
+                    <br />
+                    <br />
 
-<br />
-<div className="mx-auto mt-24 flex w-full justify-center px-4 md:w-5/12 lg:mt-2" style={{ width: '1200px', height: '300px' }}>
+                    <br />
+                    <div className="mx-auto mt-24 flex w-full justify-center px-4 md:w-5/12 lg:mt-2" style={{ width: '1200px', height: '300px' }}>
 
 
-    {/* imagen # 1 */}
-    <div className="relative rounded-lg overflow-hidden shadow-lg" style={{marginRight: '20px' }}>
-        <img
-            alt="Imagen de ejemplo"
-            src="/img/equipo.jpg"
-            className="w-full h-auto"
-        />
-        <div className="absolute bottom-0 left-0 w-full bg-gray-900 bg-opacity-75 text-white py-2 px-4">
-            <h3 className="text-lg font-bold">Título de la imagen</h3>
-            <p className="text-sm">Descripción breve de la imagen</p>
-        </div>
-    </div>
+                        {/* imagen # 1 */}
+                        <div className="relative rounded-lg overflow-hidden shadow-lg" style={{ marginRight: '20px' }}>
+                            <img
+                                alt="Imagen de ejemplo"
+                                src="/img/equipo.jpg"
+                                className="w-full h-auto"
+                            />
+                            <div className="absolute bottom-0 left-0 w-full bg-gray-900 bg-opacity-75 text-white py-2 px-4">
+                                <h3 className="text-lg font-bold">Título de la imagen</h3>
+                                <p className="text-sm">Descripción breve de la imagen</p>
+                            </div>
+                        </div>
 
-    {/* imagen # 2 */}
-    <div className="relative rounded-lg overflow-hidden shadow-lg" style={{marginRight: '20px' }}>
-        <img
-            alt="Imagen de ejemplo"
-            src="/img/equipo.jpg"
-            className="w-full h-auto"
-        />
-        <div className="absolute bottom-0 left-0 w-full bg-gray-900 bg-opacity-75 text-white py-2 px-4">
-            <h3 className="text-lg font-bold">Título de la imagen</h3>
-            <p className="text-sm">Descripción breve de la imagen</p>
-        </div>
-    </div>
+                        {/* imagen # 2 */}
+                        <div className="relative rounded-lg overflow-hidden shadow-lg" style={{ marginRight: '20px' }}>
+                            <img
+                                alt="Imagen de ejemplo"
+                                src="/img/equipo.jpg"
+                                className="w-full h-auto"
+                            />
+                            <div className="absolute bottom-0 left-0 w-full bg-gray-900 bg-opacity-75 text-white py-2 px-4">
+                                <h3 className="text-lg font-bold">Título de la imagen</h3>
+                                <p className="text-sm">Descripción breve de la imagen</p>
+                            </div>
+                        </div>
 
-    {/* imagen # 3 */}
-    <div className="relative rounded-lg overflow-hidden shadow-lg" style={{marginRight: '20px' }}>
-        <img
-            alt="Imagen de ejemplo"
-            src="/img/equipo.jpg"
-            className="w-full h-auto"
-        />
-        <div className="absolute bottom-0 left-0 w-full bg-gray-900 bg-opacity-75 text-white py-2 px-4">
-            <h3 className="text-lg font-bold">Título de la imagen</h3>
-            <p className="text-sm">Descripción breve de la imagen</p>
-        </div>
-    </div>
-</div>
+                        {/* imagen # 3 */}
+                        <div className="relative rounded-lg overflow-hidden shadow-lg" style={{ marginRight: '20px' }}>
+                            <img
+                                alt="Imagen de ejemplo"
+                                src="/img/equipo.jpg"
+                                className="w-full h-auto"
+                            />
+                            <div className="absolute bottom-0 left-0 w-full bg-gray-900 bg-opacity-75 text-white py-2 px-4">
+                                <h3 className="text-lg font-bold">Título de la imagen</h3>
+                                <p className="text-sm">Descripción breve de la imagen</p>
+                            </div>
+                        </div>
+                    </div>
 
 
 
@@ -147,8 +192,8 @@ export function Home() {
 
 
                     <div className="mt-32 flex flex-wrap items-center"
-                         id="nosotros">
-                    
+                        id="nosotros">
+
                         <div className="mx-auto mt-24 flex w-full justify-center px-4 md:w-5/12 lg:mt-0">
                             <Card className="shadow-lg border shadow-gray-500/10 rounded-lg">
                                 <CardHeader floated={false} className="relative h-866">
@@ -190,13 +235,10 @@ export function Home() {
                                 <p></p>
                             </Typography>
                             <Typography className="mb-8 font-normal text-blue-gray-500">
-                                Cada integrante de nuestro equipo aporta su talento y dedicación para desarrollar una
-                                aplicación que prioriza la seguridad y la tranquilidad de tu familia. Desde el diseño de
-                                funciones hasta la implementación de medidas de seguridad, trabajamos juntos para
-                                ofrecerte una experiencia fluida y confiable. Nuestro compromiso es asegurarnos de que
-                                cada aspecto de la aplicación esté cuidadosamente diseñado para brindarte la mejor
-                                experiencia posible.
-                                <br/>
+                                Cada miembro de nuestro equipo contribuye con su talento y esfuerzo para desarrollar una aplicación que pone en primer plano el bienestar y la comodidad de tu familia.
+                                Desde el diseño de funciones hasta la implementación de medidas de calidad, colaboramos para ofrecerte una experiencia fluida y confiable.
+                                Nuestro compromiso es asegurar que cada detalle de la aplicación esté meticulosamente diseñado para proporcionarte la mejor experiencia posible.
+                                <br />
                             </Typography>
                             {/* <Button variant="filled">Leer Mas</Button> */}
                         </div>
@@ -206,7 +248,7 @@ export function Home() {
                 </div>
             </section>
             <div className="bg-white">
-                <Footer/>
+                <Footer />
             </div>
         </>
     );
