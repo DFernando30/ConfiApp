@@ -232,7 +232,7 @@ export function Profile() {
             <section className="relative block h-[50vh]">
                 <Toaster/>
                 <div
-                    className="bg-profile-background absolute top-0 h-full w-full bg-[url('/img/background-fin.png')] bg-cover bg-center scale-100"/>
+                    className="bg-profile-background absolute top-0 h-full w-full bg-[url('/img/backi.png')] bg-cover bg-center scale-100"/>
                 <div className="absolute top-0 h-full w-full bg-black/60 bg-cover bg-center"/>
 
                 {/* Botón del menú */}
