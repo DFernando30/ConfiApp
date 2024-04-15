@@ -196,6 +196,36 @@ export function Profile() {
     }
 
 
+
+
+
+    // imagenes 
+    const handleImageChange = async (event) => {
+        const file = event.target.files[0]; // Obtener el archivo seleccionado
+        if (file) {
+            // Crear un objeto FormData para enviar la imagen
+            const formData = new FormData();
+            formData.append('foto', file);
+    
+            try {
+                // Enviar la imagen al backend
+                const response = await axios.post("https://nuevomern-7y1b.onrender.com/api/upload-image", formData);
+                if (response.ok) {
+                    const data = response.data;
+                    const downloadURL = data.downloadURL;
+                    console.log('Imagen subida con éxito:', downloadURL);
+                    // Aquí puedes hacer algo con la URL de descarga, como mostrar la imagen en tu frontend
+                    // También puedes actualizar el estado con la URL de la imagen, si es necesario
+                    setDataDes({ ...dataDes, foto: downloadURL });
+                } else {
+                    console.error('Error al subir la imagen');
+                }
+            } catch (error) {
+                console.error('Error al subir la imagen:', error);
+            }
+        }
+    };
+    
     return (
         <>
 
@@ -207,7 +237,7 @@ export function Profile() {
 
                 {/* Botón del menú */}
                 <span
-                    className="bg-[#7ED2F3] rounded-md p-2.5 cursor-pointer hover:bg-blue-00 transition-colors duration-300 absolute top-4 right-4 z-50"
+                    className="bg-[#7ED2F3] rounded-md p-2.5 cursor-pointer hover:bg-blue-00 transition-colors duration-300 absolute top-4 right-9 z-100"
                     style={{width: "50px", height: "50px"}}
                     onClick={() => handleMenuClick()}
                 >
@@ -224,14 +254,16 @@ export function Profile() {
       />
     </svg>
   </span>
+  
 
                 {/* Menú desplegable */}
                 {menuOpen && (
-                    <div className="absolute top-10 right-10 bg-white shadow-md rounded-md">
+                    <div className="absolute top-10 right-20 bg-white shadow-md rounded-md ">
                         {menuOptions.map((option, index) => (
                             <div
                                 key={index}
-                                className="p-3 hover:bg-[#4D5AA6]  text-[#000000] cursor-pointer"
+                                className="p-3 hover:bg-[#4D5AA6]  text-[#000000] cursor-pointer  "
+                                style={{width: "200px"}}
 
                                 onClick={() => handleMenuOptionClick(option.action)}>
                                 {option.label}
@@ -276,7 +308,7 @@ export function Profile() {
                             </div>
 
 
-                            <div className="mt-8 mb-10 flex justify-center gap-4">
+                            <div className="mt-8 mb-10 flex justify-center gap-4  ">
                                 <Button
                                     style={{background: "#7ED2F3", color: "#000000"}}
                                     type="button"
@@ -293,6 +325,7 @@ export function Profile() {
                                     Reportar un menor desaparecido
                                 </Button>
 
+<img src="/img/logopngconfiazul-copia.png" alt=""  style={{width: "50px"}} />
                                 
 
 
@@ -547,7 +580,7 @@ export function Profile() {
                                         </div>
 
                                         <div className="my-4 flex gap-8">
-                                            <Input type="text" name="foto" variant="outlined" size="sm"
+                                            <Input  type="file" id="imageInput" accept="image/* "  name="foto" variant="outlined" size="sm"
                                                    label="Foto del menor"
                                                    value={dataDes.foto}
                                                    onChange={(e) => setDataDes({

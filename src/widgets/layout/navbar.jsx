@@ -94,6 +94,15 @@ export function Navbar({brandName, routes, action, img}) {
                     </Link>
                   
 
+                    <div className="flex justify-center">
+                            <a href="# " className="w-150">
+                                <Button variant="text" size="sm" fullWidth style={{  color: "#ffffff", borderRadius:"#000000", border: "2px solid #ffffff" }}>
+                                    Descargar App
+                                </Button>
+                            </a>
+                        </div>
+
+
 
                     <Link
                         to="/sign-up"
