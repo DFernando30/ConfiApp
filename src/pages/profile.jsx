@@ -1,19 +1,19 @@
 import { motion } from 'framer-motion';
 
-import {Input, Avatar, Typography, Button, Card, Textarea, Checkbox} from "@material-tailwind/react";
+import { Input, Avatar, Typography, Button, Card, Textarea, Checkbox } from "@material-tailwind/react";
 import {
     MapPinIcon, BriefcaseIcon, BuildingLibraryIcon,
 } from "@heroicons/react/24/solid";
-import {Footer, DesaparecidosUpload} from "@/widgets/layout";
-import {contactData} from "@/data";
-import {PageTitle} from "@/widgets/layout";
+import { Footer, DesaparecidosUpload } from "@/widgets/layout";
+import { contactData } from "@/data";
+import { PageTitle } from "@/widgets/layout";
 import axios from "axios";
-import toast, {Toaster} from "react-hot-toast";
-import React, {useEffect, useState} from "react";
+import toast, { Toaster } from "react-hot-toast";
+import React, { useEffect, useState } from "react";
 import News from "@/widgets/layout/News.jsx";
 import ModalMenor from "@/pages/modalmenor";
 import '../styles/modalmenor.css';
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 export function Profile() {
@@ -130,19 +130,19 @@ export function Profile() {
 
     // Definimos las opciones del menú
     const menuOptions = [
-        {label: ' Ver reportes', action: () => setShowModalDes(true)},
-        {label: ' Cerrar sesion', action: () => logoutUsers()}
+        { label: ' Ver reportes', action: () => setShowModalDes(true) },
+        { label: ' Cerrar sesion', action: () => logoutUsers() }
     ];
 
-// Estado para controlar la visibilidad del menú desplegable
+    // Estado para controlar la visibilidad del menú desplegable
     const [menuOpen, setMenuOpen] = useState(false);
 
-// Función para manejar el clic en el ícono del menú
+    // Función para manejar el clic en el ícono del menú
     const handleMenuClick = () => {
         setMenuOpen(!menuOpen); // Cambiamos el estado para mostrar u ocultar el menú
     };
 
-// Función para manejar las acciones del menú
+    // Función para manejar las acciones del menú
     const handleMenuOptionClick = (action) => {
         action(); // Ejecutamos la acción asociada a la opción del menú
         setMenuOpen(false); // Ocultamos el menú después de hacer clic en una opción
@@ -167,8 +167,13 @@ export function Profile() {
             return;
         }
 
+        const formData = new FormData();
+        formData.append('nombre', dataDes.nombre);
+        formData.append('imagePhoto', dataDes.foto);
+        formData.append('descripcion', dataDes.descripcion);
+
         try {
-            const response = await axios.post("https://nuevomern-7y1b.onrender.com/api/noticias", dataDes);
+            const response = await axios.post("https://nuevomern-7y1b.onrender.com/api/noticias", formData);
             console.log(response.data);
             const toastId = toast.success("Tu publicación está en proceso de revisión por el administrador.");
             setTimeout(() => {
@@ -198,36 +203,10 @@ export function Profile() {
     }
 
 
-
-
-
-    // imagenes 
-    const handleImageChange = async (event) => {
-        const file = event.target.files[0]; // Obtener el archivo seleccionado
-        if (file) {
-            // Crear un objeto FormData para enviar la imagen
-            const formData = new FormData();
-            formData.append('foto', file);
-    
-            try {
-                // Enviar la imagen al backend
-                const response = await axios.post("https://nuevomern-7y1b.onrender.com/api/upload-image", formData);
-                if (response.ok) {
-                    const data = response.data;
-                    const downloadURL = data.downloadURL;
-                    console.log('Imagen subida con éxito:', downloadURL);
-                    // Aquí puedes hacer algo con la URL de descarga, como mostrar la imagen en tu frontend
-                    // También puedes actualizar el estado con la URL de la imagen, si es necesario
-                    setDataDes({ ...dataDes, foto: downloadURL });
-                } else {
-                    console.error('Error al subir la imagen');
-                }
-            } catch (error) {
-                console.error('Error al subir la imagen:', error);
-            }
-        }
+    const handleImageChange = (e) => {
+        setDataDes({...dataDes, foto: e.target.files[0]});
     };
-    
+
     return (
         <>
             <section className="relative block h-[50vh]">
@@ -239,23 +218,23 @@ export function Profile() {
                 {/* Botón del menú */}
                 <span
                     className="bg-[#7ED2F3] rounded-md p-2.5 cursor-pointer hover:bg-blue-00 transition-colors duration-300 absolute top-4 right-9 z-100"
-                    style={{width: "50px", height: "50px"}}
+                    style={{ width: "50px", height: "50px" }}
                     onClick={() => handleMenuClick()}
                 >
-    <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-8 w-8 text-black"
-        viewBox="0 0 20 20"
-        fill="currentColor"
-    >
-      <path
-          fillRule="evenodd"
-          d="M3 3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V3zm0 5a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8zm0 5a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-1z"
-          clipRule="evenodd"
-      />
-    </svg>
-  </span>
-  
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-8 w-8 text-black"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                    >
+                        <path
+                            fillRule="evenodd"
+                            d="M3 3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V3zm0 5a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8zm0 5a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-1z"
+                            clipRule="evenodd"
+                        />
+                    </svg>
+                </span>
+
 
                 {/* Menú desplegable */}
                 {menuOpen && (
@@ -264,7 +243,7 @@ export function Profile() {
                             <div
                                 key={index}
                                 className="p-3 hover:bg-[#4D5AA6]  text-[#000000] cursor-pointer  "
-                                style={{width: "200px"}}
+                                style={{ width: "200px" }}
 
                                 onClick={() => handleMenuOptionClick(option.action)}>
                                 {option.label}
@@ -294,10 +273,10 @@ export function Profile() {
                                         {data.nombres} {data.apellidos}
                                     </Typography>
                                     <Typography variant="paragraph" color="gray"
-                                                className="!mt-0 font-normal">{data.email}</Typography>
+                                        className="!mt-0 font-normal">{data.email}</Typography>
 
                                     <div className="flex items-center gap-2">
-                                        <BuildingLibraryIcon className="-mt-px h-4 w-4 text-blue-gray-500"/>
+                                        <BuildingLibraryIcon className="-mt-px h-4 w-4 text-blue-gray-500" />
                                         <Typography className="font-medium text-blue-gray-500">
                                             Tel: {data.telefono}
                                         </Typography>
@@ -311,23 +290,23 @@ export function Profile() {
 
                             <div className="mt-8 mb-10 flex justify-center gap-4  ">
                                 <Button
-                                    style={{background: "#7ED2F3", color: "#000000"}}
+                                    style={{ background: "#7ED2F3", color: "#000000" }}
                                     type="button"
                                     onClick={() => setShowModal(true)}>
                                     Agregar un menor
                                 </Button>
-                        
+
 
                                 <Button
-                                    style={{background: "#7ED2F3", color: "#000000"}}
+                                    style={{ background: "#7ED2F3", color: "#000000" }}
                                     type="button"
                                     onClick={() => setShowModalReport(true)}
                                 >
                                     Reportar un menor desaparecido
                                 </Button>
 
-<img src="/img/logopngconfiazul-copia.png" alt=""  style={{width: "50px"}} />
-                                
+                                <img src="/img/logopngconfiazul-copia.png" alt="" style={{ width: "50px" }} />
+
 
 
 
@@ -387,7 +366,7 @@ export function Profile() {
                             </Typography>
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                                 {menores.map((menor) => (
-                                    
+
                                     <div key={menor._id} className="bg-gray-100 p-4 rounded-lg shadow-md">
                                         <Typography className="font-bold text-blueGray-700">
                                             {menor.nombres} {menor.apellidos}
@@ -418,7 +397,7 @@ export function Profile() {
 
 
             <div className="bg-white">
-                <Footer/>
+                <Footer />
             </div>
 
 
@@ -430,7 +409,7 @@ export function Profile() {
                             <div className="absolute inset-0 bg-gray-500 opacity-75"></div>
                         </div>
                         <span className="hidden sm:inline-block sm:align-middle sm:h-screen"
-                              aria-hidden="true">&#8203;</span>
+                            aria-hidden="true">&#8203;</span>
                         <div
                             className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
                             <form onSubmit={handleSubmit}>
@@ -449,7 +428,7 @@ export function Profile() {
                                             size="regular"
                                             placeholder="Nombres"
                                             value={formData.nombres}
-                                            onChange={(e) => setFormData({...formData, nombres: e.target.value})}
+                                            onChange={(e) => setFormData({ ...formData, nombres: e.target.value })}
                                         />
                                         <Typography variant="small" color="blue-gray" className="-mb-4 font-medium">
                                             Apellidos:
@@ -459,7 +438,7 @@ export function Profile() {
                                             size="regular"
                                             placeholder="Apellidos"
                                             value={formData.apellidos}
-                                            onChange={(e) => setFormData({...formData, apellidos: e.target.value})}
+                                            onChange={(e) => setFormData({ ...formData, apellidos: e.target.value })}
                                         />
 
                                         <Typography variant="small" color="blue-gray" className="-mb-4 font-medium">
@@ -500,7 +479,7 @@ export function Profile() {
                                             size="regular"
                                             placeholder="Edad"
                                             value={formData.edad}
-                                            onChange={(e) => setFormData({...formData, edad: e.target.value})}
+                                            onChange={(e) => setFormData({ ...formData, edad: e.target.value })}
                                         />
                                         <Typography variant="small" color="blue-gray" className="-mb-4 font-medium">
                                             Teléfono:
@@ -510,7 +489,7 @@ export function Profile() {
                                             size="regular"
                                             placeholder="Teléfono"
                                             value={formData.telefono}
-                                            onChange={(e) => setFormData({...formData, telefono: e.target.value})}
+                                            onChange={(e) => setFormData({ ...formData, telefono: e.target.value })}
                                         />
                                         <Typography variant="small" color="blue-gray" className="-mb-4 font-medium">
                                             Correo electrónico:
@@ -520,13 +499,13 @@ export function Profile() {
                                             size="regular"
                                             placeholder="Correo electrónico"
                                             value={formData.correo}
-                                            onChange={(e) => setFormData({...formData, correo: e.target.value})}
+                                            onChange={(e) => setFormData({ ...formData, correo: e.target.value })}
                                         />
                                     </div>
                                 </div>
                                 <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
                                     <Button
-                                        style={{background: "#7ED2F3", color: "#000000"}}
+                                        style={{ background: "#7ED2F3", color: "#000000" }}
                                         type="submit"
                                         color="blue"
                                         buttonType="filled"
@@ -563,7 +542,7 @@ export function Profile() {
                             <div className="absolute inset-0 bg-gray-500 opacity-75"></div>
                         </div>
                         <span className="hidden sm:inline-block sm:align-middle sm:h-screen"
-                              aria-hidden="true">&#8203;</span>
+                            aria-hidden="true">&#8203;</span>
                         <div
                             className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
                             <div>
@@ -578,27 +557,23 @@ export function Profile() {
                                                 variant="outlined" size="sm"
                                                 label="Nombre completo del menor"
                                                 value={dataDes.nombre}
-                                                onChange={(e) => setDataDes({...dataDes, nombre: e.target.value})}/>
+                                                onChange={(e) => setDataDes({ ...dataDes, nombre: e.target.value })} />
                                         </div>
 
                                         <div className="my-4 flex gap-8">
-                                            <Input  type="file" id="imageInput" accept="image/* "  name="foto" variant="outlined" size="sm"
-                                                   label="Foto del menor"
-                                                   value={dataDes.foto}
-                                                   onChange={(e) => setDataDes({
-                                                       ...dataDes,
-                                                       foto: e.target.value
-                                                   })}/>
+                                            <Input type="file" id="imageInput" accept="image/* " name="imagePhoto" variant="outlined" size="sm"
+                                                label="Foto del menor"
+                                                onChange={handleImageChange} />
                                         </div>
 
                                         <Textarea variant="outlined" size="sm"
-                                                  label="Descripcion y donde fue visto por última vez. (También agrega un número de contacto)"
-                                                  rows={5}
-                                                  value={dataDes.descripcion}
-                                                  onChange={(e) => setDataDes({
-                                                      ...dataDes,
-                                                      descripcion: e.target.value
-                                                  })}/>
+                                            label="Descripcion y donde fue visto por última vez. (También agrega un número de contacto)"
+                                            rows={5}
+                                            value={dataDes.descripcion}
+                                            onChange={(e) => setDataDes({
+                                                ...dataDes,
+                                                descripcion: e.target.value
+                                            })} />
 
                                         {/* Agregamos el campo de Checkbox */}
                                         <div className="mt-0 flex items-center gap-1">
@@ -627,7 +602,7 @@ export function Profile() {
                                 </div>
                                 <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
                                     <Button
-                                        style={{background: "#7ED2F3", color: "#000000"}}
+                                        style={{ background: "#7ED2F3", color: "#000000" }}
                                         type="button"
                                         color="blue"
                                         buttonType="filled"
@@ -661,9 +636,9 @@ export function Profile() {
                 <div className="modal">
                     <div className="flex flex-col items-center modal-contenido w-full h-full">
                         <div className="flex flex-col items-center">
-                            <News/>
+                            <News />
                             <Button className="w-full my-5" onClick={() => setShowModalDes(false)} color="blue-gray"
-                                    ripple="light">
+                                ripple="light">
                                 Cerrar
                             </Button>
                         </div>
