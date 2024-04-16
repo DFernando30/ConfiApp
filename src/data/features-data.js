@@ -24,10 +24,10 @@ export const featuresData = [
   // },
   {
     color: "gray",
-    title: "¿ Que es ConfiApp ?",
+    title: "¿ Que puedes hacer con ConfiApp ?",
     icon: BellAlertIcon,
     description:
-      "Si un menor necesita comunicar al tutor una desviación para no  preocupar a su tutor responsable, puede enviarle un mensaje o dirigirlo realizar una llamada y avisar anticipadamente la notificación de alerta  ",
+      "Como tutor responsable puedes crear una ruta para uno o varios menores a cargo, y él menor seguir esa ruta predefinida...   ",
   },
 ];
 

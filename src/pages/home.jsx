@@ -41,6 +41,15 @@ export function Home() {
     const scale = useTransform(scrollYProgress, [0, 1], [1, 1.2]);
 
 
+
+
+
+
+   // ------------------------------
+    
+   
+
+
     return (
         <>
             <div className="relative flex h-screen content-center items-center justify-center pt-16 pb-32">
@@ -130,60 +139,49 @@ export function Home() {
                             </motion.div>
                         ))}
                     </div>
-                    <br />
-                    <br />
-
-                    <br />
-
-                    <div className="mx-auto mt-24 flex w-full justify-center px-4 md:w-5/12 lg:mt-2" style={{ width: '1200px', height: '300px' }}>
-
-                        {/* imagen # 1 */}
-                        <div className="relative rounded-lg overflow-hidden shadow-lg" style={{ marginRight: '20px' }}>
-                            <img
-                                alt="Imagen de ejemplo"
-                                src="/img/equipo.jpg"
-                                className="w-full h-auto"
-                            />
-                            <div className="absolute bottom-0 left-0 w-full bg-gray-900 bg-opacity-75 text-white py-2 px-4">
-                                <h3 className="text-lg font-bold">Título de la imagen</h3>
-                                <p className="text-sm">Descripción breve de la imagen</p>
-                            </div>
-                        </div>
-
-                        {/* imagen # 2 */}
-                        <div className="relative rounded-lg overflow-hidden shadow-lg" style={{ marginRight: '20px' }}>
-                            <img
-                                alt="Imagen de ejemplo"
-                                src="/img/equipo.jpg"
-                                className="w-full h-auto"
-                            />
-                            <div className="absolute bottom-0 left-0 w-full bg-gray-900 bg-opacity-75 text-white py-2 px-4">
-                                <h3 className="text-lg font-bold">Título de la imagen</h3>
-                                <p className="text-sm">Descripción breve de la imagen</p>
-                            </div>
-                        </div>
-
-                        {/* imagen # 3 */}
-                        <div className="relative rounded-lg overflow-hidden shadow-lg" style={{ marginRight: '20px' }}>
-                            <img
-                                alt="Imagen de ejemplo"
-                                src="/img/equipo.jpg"
-                                className="w-full h-auto"
-                            />
-                            <div className="absolute bottom-0 left-0 w-full bg-gray-900 bg-opacity-75 text-white py-2 px-4">
-                                <h3 className="text-lg font-bold">Título de la imagen</h3>
-                                <p className="text-sm">Descripción breve de la imagen</p>
-                            </div>
-                        </div>
-                    </div>
+                    
 
 
 
+                    <div class="mx-auto my-24 px-4 sm:px-0 max-w-screen-xl">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div class="relative rounded-lg overflow-hidden shadow-lg">
+            <img
+                alt="Imagen de ejemplo"
+                src="/img/equipo.jpg"
+                class="w-full h-auto"
+            />
+            <div class="absolute bottom-0 left-0 w-full bg-gray-900 bg-opacity-75 text-white py-2 px-4">
+                <h3 class="text-lg font-bold">Título de la imagen</h3>
+                <p class="text-sm">Descripción breve de la imagen</p>
+            </div>
+        </div>
 
+        <div class="relative rounded-lg overflow-hidden shadow-lg">
+            <img
+                alt="Imagen de ejemplo"
+                src="/img/equipo.jpg"
+                class="w-full h-auto"
+            />
+            <div class="absolute bottom-0 left-0 w-full bg-gray-900 bg-opacity-75 text-white py-2 px-4">
+                <h3 class="text-lg font-bold">Título de la imagen</h3>
+                <p class="text-sm">Descripción breve de la imagen</p>
+            </div>
+        </div>
 
-
-
-
+        <div class="relative rounded-lg overflow-hidden shadow-lg">
+            <img
+                alt="Imagen de ejemplo"
+                src="/img/equipo.jpg"
+                class="w-full h-auto"
+            />
+            <div class="absolute bottom-0 left-0 w-full bg-gray-900 bg-opacity-75 text-white py-2 px-4">
+                <h3 class="text-lg font-bold">Título de la imagen</h3>
+                <p class="text-sm">Descripción breve de la imagen</p>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 

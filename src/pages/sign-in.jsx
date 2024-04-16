@@ -58,7 +58,7 @@ export function SignIn() {
             <Toaster />
 
 
-            <div className="w-full lg:w-3/5 mt-24">
+            <div className="w-full lg:w-3/5 mt-34 " style={{marginLeft:'20px'}}>
 
             <motion.div
                     initial={{ opacity: 0, x: -100 }}
@@ -67,7 +67,7 @@ export function SignIn() {
                     className="w-full lg:w-3/5 mt-24"
                 >
 
-                    <div className="text-center">
+                    <div className="text-center  ">
                         <Typography variant="h2" className="font-bold mb-4">Iniciar Sesión</Typography>
                     </div>
                     <form className="mt-8 mb-2 mx-auto w-80 max-w-screen-lg lg:w-1/2">
