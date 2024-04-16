@@ -648,7 +648,9 @@ export function Profile() {
                     <div className="flex flex-col items-center modal-contenido w-full h-full">
                         <div className="flex flex-col items-center">
                             <News />
-                            <Button className="w-full my-5" onClick={() => setShowModalDes(false)} color="blue-gray"
+                            <Button className="w-full my-5" 
+                             style={{ background: "#4D5AA6", color: "#ffffff" }}
+                            onClick={() => setShowModalDes(false)} color="blue-gray"
                                 ripple="light">
                                 Cerrar
                             </Button>
@@ -701,30 +703,7 @@ export function Profile() {
     </div>
 )}
 
-            <div className="mt-0 flex items-center gap-1">
-                <Checkbox
-                    checked={dataDes.aceptaTerminos}
-                    onChange={(e) => setDataDes({
-                        ...dataDes,
-                        aceptaTerminos: e.target.checked
-                    })}
-                />
-                <Typography
-                    variant="small"
-                    color="gray"
-                    className="flex items-center justify-start font-medium"
-                >
-                    Aceptas &nbsp;
-                    {/* Aquí colocamos el enlace de Términos y condiciones */}
-                    <a
-                        href="#"
-                        className="font-normal text-black transition-colors hover:text-gray-900 underline"
-                        onClick={handleToggleModalTerms} // Agrega este evento onClick
-                    >
-                        Términos y condiciones
-                    </a>
-                </Typography>
-            </div>
+           
         </>
     );
 };

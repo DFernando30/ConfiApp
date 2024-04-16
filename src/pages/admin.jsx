@@ -187,7 +187,7 @@ const Admin = () => {
         <div>
             {users.map((dataUser) => (
                 <div key={dataUser._id} className="flex items-center bg-white rounded-lg overflow-hidden shadow-md">
-                    <img src="/img/user.png" alt="sin imagen aun" className="w-24 h-24 object-cover object-center" />
+                    <img src="/img/user.png" alt="/img/user.png" className="w-24 h-24 object-cover object-center" />
                     <div className="flex-grow p-4">
                         <h3 className="text-lg font-semibold mb-2">{dataUser.nombres} {dataUser.apellidos}</h3>
                         <p className="text-gray-600 mb-2">{dataUser.rol}</p>

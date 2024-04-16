@@ -40,7 +40,7 @@ const Modal = ({ data, cerrarModal }) => {
                 <div className="overflow-y-auto">
                     <img
                         className="w-full h-48"
-                        src="https://img.freepik.com/psd-gratis/ilustracion-3d-avatar-o-perfil-humano_23-2150671142.jpg"
+                        src="/img/user.png"
                         alt={data.data}
                         style={{ maxWidth: '200px' }}
                     />
