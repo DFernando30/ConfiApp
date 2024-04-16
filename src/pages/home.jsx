@@ -160,7 +160,7 @@ export function Home() {
         <div class="relative rounded-lg overflow-hidden shadow-lg">
             <img
                 alt="Imagen de ejemplo"
-                src="/img/hablando-2.jpg"
+                src="/img/hablando-3.jpg"
                 class="w-full h-auto"
             />
             <div class="absolute bottom-0 left-0 w-full bg-gray-900 bg-opacity-75 text-white py-2 px-4">

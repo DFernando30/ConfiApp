@@ -207,6 +207,16 @@ export function Profile() {
         setDataDes({...dataDes, foto: e.target.files[0]});
     };
 
+
+
+
+     // Estado para controlar el modal de términos y condiciones
+     const [showModalTerms, setShowModalTerms] = useState(false); // Estado para controlar la visibilidad del modal de términos y condiciones
+
+     const handleToggleModalTerms = () => {
+         setShowModalTerms(!showModalTerms); // Función para alternar la visibilidad del modal
+     };
+
     return (
         <>
             <section className="relative block h-[50vh]">
@@ -584,18 +594,19 @@ export function Profile() {
                                                     aceptaTerminos: e.target.checked
                                                 })}
                                             />
-                                            <Typography
+                                           <Typography
                                                 variant="small"
                                                 color="gray"
                                                 className="flex items-center justify-start font-medium"
                                             >
                                                 Aceptas &nbsp;
                                                 <a
-                                                    href="#"
-                                                    className="font-normal text-black transition-colors hover:text-gray-900 underline"
-                                                >
-                                                    Términos y condiciones
-                                                </a>
+                                                 href="#"
+                                                onClick={handleToggleModalTerms}
+                                                className="font-normal text-black transition-colors hover:text-gray-900 underline"
+                                             >
+                                            Términos y condiciones
+                                           </a>
                                             </Typography>
                                         </div>
                                     </div>
@@ -646,8 +657,79 @@ export function Profile() {
                 </div>
             )}
 
+
+
+
+
+
+              {/* Modal de términos y condiciones */}
+              {showModalTerms && (
+    <div className="fixed z-10 inset-0 overflow-y-auto">
+        <div className="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div className="fixed inset-0 transition-opacity" aria-hidden="true">
+                <div className="absolute inset-0 bg-gray-500 opacity-75"></div>
+            </div>
+            <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+            <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+                <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4" style={{ maxHeight: '70vh', overflowY: 'auto' }}>
+                    <h2 className="text-xl font-bold mb-4">Términos y Condiciones Habeas Data</h2>
+                    <p>los términos "nosotros", "nos" y "nuestro" se refieren en lo sucesivo a Confiapp.</p>
+                    <p>Confiapp ofrece esta página web, incluida toda la información, las herramientas y</p>
+                    <p>los servicios que se ponen en este sitio a disposición suya, el usuario, siempre</p>
+                    <p>y cuando acepte la totalidad de los términos, condiciones, políticas y avisos </p>
+                    <p>contemplados aquí.</p>
+                    <p>los términos "nosotros", "nos" y "nuestro" se refieren en lo sucesivo a Confiapp.</p>
+                    <p>Confiapp ofrece esta página web, incluida toda la información, las herramientas y</p>
+                    <p>los servicios que se ponen en este sitio a disposición suya, el usuario, siempre</p>
+                    <p>y cuando acepte la totalidad de los términos, condiciones, políticas y avisos </p>
+                    <p>contemplados aquí.</p>
+
+                    {/* Agregar más contenido aquí */}
+                </div>
+                <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse"
+                >
+                    <Button
+                        onClick={handleToggleModalTerms}
+                        className="font-normal text-black transition-colors hover:text-gray-900 underline"
+                        style={{ background: "#7ED2F3", color: "#000000" }}
+                    >
+                        Aceptar
+                    </Button>
+                </div>
+            </div>
+        </div>
+    </div>
+)}
+
+            <div className="mt-0 flex items-center gap-1">
+                <Checkbox
+                    checked={dataDes.aceptaTerminos}
+                    onChange={(e) => setDataDes({
+                        ...dataDes,
+                        aceptaTerminos: e.target.checked
+                    })}
+                />
+                <Typography
+                    variant="small"
+                    color="gray"
+                    className="flex items-center justify-start font-medium"
+                >
+                    Aceptas &nbsp;
+                    {/* Aquí colocamos el enlace de Términos y condiciones */}
+                    <a
+                        href="#"
+                        className="font-normal text-black transition-colors hover:text-gray-900 underline"
+                        onClick={handleToggleModalTerms} // Agrega este evento onClick
+                    >
+                        Términos y condiciones
+                    </a>
+                </Typography>
+            </div>
         </>
-    )
+    );
 };
+
+
+
 
 export default Profile;
