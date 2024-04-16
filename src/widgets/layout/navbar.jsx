@@ -87,15 +87,10 @@ export function Navbar({brandName, routes, action, img}) {
                 <div className="hidden gap-2 lg:flex">
                 
                 
-                <Link  href=" " to="/descargar-app" className="mb-2 block"> {/* Asegúrate de tener la ruta adecuada */}
-                        <Button variant="text" size="sm" fullWidth   style={{  color: "#ffffff", borderRadius:"#000000",  border: "2px solid #ffffff"}}>
-                            Descargar App
-                        </Button>
-                    </Link>
-                  
+                
 
                     <div className="flex justify-center">
-                            <a href="# " className="w-150">
+                            <a href="https://soysena-my.sharepoint.com/:f:/g/personal/nbgalindez_soy_sena_edu_co/EugTqDFQdElHkvijh-xNxbMBWnv1TLpQ_QmfVOcym1MtoQ?e=cdzMz5 " className="w-150">
                                 <Button variant="text" size="sm" fullWidth style={{  color: "#ffffff", borderRadius:"#000000", border: "2px solid #ffffff" }}>
                                     Descargar App
                                 </Button>
