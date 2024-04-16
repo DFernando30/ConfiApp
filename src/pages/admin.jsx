@@ -187,7 +187,7 @@ const Admin = () => {
         <div>
             {users.map((dataUser) => (
                 <div key={dataUser._id} className="flex items-center bg-white rounded-lg overflow-hidden shadow-md">
-                    <img src="https://img.freepik.com/psd-gratis/ilustracion-3d-avatar-o-perfil-humano_23-2150671142.jpg" alt="sin imagen aun" className="w-24 h-24 object-cover object-center" />
+                    <img src="/img/user.png" alt="sin imagen aun" className="w-24 h-24 object-cover object-center" />
                     <div className="flex-grow p-4">
                         <h3 className="text-lg font-semibold mb-2">{dataUser.nombres} {dataUser.apellidos}</h3>
                         <p className="text-gray-600 mb-2">{dataUser.rol}</p>
@@ -208,7 +208,7 @@ const Admin = () => {
                                 className="text-white hover:underline focus:outline-none bg-blue-600 hover:bg-red-300 px-3 py-1 rounded-full font-rounded"
                                 style={{ backgroundColor: '#4E64A6' }}
                             >
-                                Eliminar usuario
+                                Inabilitar usuario
                             </button>
                         </div>
                     </div>

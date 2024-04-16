@@ -134,8 +134,8 @@ export function Home() {
                     <br />
 
                     <br />
-                    <div className="mx-auto mt-24 flex w-full justify-center px-4 md:w-5/12 lg:mt-2" style={{ width: '1200px', height: '300px' }}>
 
+                    <div className="mx-auto mt-24 flex w-full justify-center px-4 md:w-5/12 lg:mt-2" style={{ width: '1200px', height: '300px' }}>
 
                         {/* imagen # 1 */}
                         <div className="relative rounded-lg overflow-hidden shadow-lg" style={{ marginRight: '20px' }}>
