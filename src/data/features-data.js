@@ -27,7 +27,7 @@ export const featuresData = [
     title: "¿ Que puedes hacer con ConfiApp ?",
     icon: BellAlertIcon,
     description:
-      "Como tutor responsable puedes crear una ruta para uno o varios menores a cargo, y él menor seguir esa ruta predefinida...   ",
+      "Como tutor responsable puedes crear una ruta para uno o varios menores a cargo, y él menor seguir esa ruta predefinida y en caso de cualquier emergencia el menor será dirigido a realizar una llamada a su tutor responsable. También un tutor podrá solicitar realizar una publicación de un reporte de un menor en caso de desaparición.  ",
   },
 ];
 
