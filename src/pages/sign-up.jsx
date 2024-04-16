@@ -274,7 +274,7 @@ export function SignUp() {
                         </Typography>
                         
                         <Typography variant="h4" className="font-bold mb-4">
-                       Información Contenida en el Portal Web
+                        Políticas de Privacidad y Condiciones de Uso
                      </Typography>
                     <div className="max-h-60 overflow-y-auto mb-4">
     <Typography variant="paragraph">
