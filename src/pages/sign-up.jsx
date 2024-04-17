@@ -251,7 +251,8 @@ export function SignUp() {
                         }
                         containerProps={{className: "-ml-2.5"}}
                     />
-                    <Button type="submit" className="mt-6" fullWidth>
+                    <Button type="submit" className="mt-6" fullWidth
+                    style={{ background: "#7ED2F3", color: "#000000" }}>
                         Registrate ahora
                     </Button>
 
