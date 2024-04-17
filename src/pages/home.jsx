@@ -152,8 +152,8 @@ export function Home() {
                 class="w-full h-auto"
             />
             <div class="absolute bottom-0 left-0 w-full bg-gray-900 bg-opacity-75 text-white py-2 px-4">
-                <h3 class="text-lg font-bold">Título de la imagen</h3>
-                <p class="text-sm">Descripción breve de la imagen</p>
+                <h3 class="text-lg font-bold">Crea rutas personalizadas</h3>
+                <p class="text-sm">Como tutor responsable puedes crear una ruta personalizada para que el menor pueda seguirla.</p>
             </div>
         </div>
 
@@ -164,8 +164,8 @@ export function Home() {
                 class="w-full h-auto"
             />
             <div class="absolute bottom-0 left-0 w-full bg-gray-900 bg-opacity-75 text-white py-2 px-4">
-                <h3 class="text-lg font-bold">Título de la imagen</h3>
-                <p class="text-sm">Descripción breve de la imagen</p>
+                <h3 class="text-lg font-bold">  En caso de cualquier inconveniente</h3>
+                <p class="text-sm">Si pasa algún inconveniente, el menor será dirigido rapidamente a realizar una llamada al tutor.</p>
             </div>
         </div>
 
@@ -176,8 +176,8 @@ export function Home() {
                 class="w-full h-auto"
             />
             <div class="absolute bottom-0 left-0 w-full bg-gray-900 bg-opacity-75 text-white py-2 px-4">
-                <h3 class="text-lg font-bold">Título de la imagen</h3>
-                <p class="text-sm">Descripción breve de la imagen</p>
+                <h3 class="text-lg font-bold">Publicaciones de desaparecidos</h3>
+                <p class="text-sm">Como tutor puedes solicitar la publicacion de un reporte de un menor desaparecido.</p>
             </div>
         </div>
     </div>
