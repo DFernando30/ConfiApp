@@ -95,7 +95,7 @@ export function Profile() {
 
         } catch (error) {
             console.error("Error:", error);
-            toast.error("Error en el registro.");
+            toast.error("Error en el registro, verifica que tus datos sean correctos");
         }
 
     };

@@ -11,9 +11,11 @@ export const featuresData = [
     title: "Misión y visión",
     icon: CogIcon,
     description: [
-      "Facilitar la supervisión y comunicación efectiva entre tutores y menores a su cargo, proporcionando una plataforma intuitiva y confiable ", 
-      "Convertirnos en la aplicación líder a nivel mundial en la protección y supervisión de menores, ofreciendo soluciones innovadoras y accesibles que promuevan la tranquilidad y confianza de las familias en su día a día.",
-    ],
+      "MISIÓN: Facilitar la supervisión y comunicación efectiva entre tutores y menores a su cargo, con nuestra plataforma accesible y estable. "
+      +
+      "VISIÓN: Convertirnos en la aplicación líder a nivel mundial en la protección y supervisión de menores, ofreciendo soluciones innovadoras y accesibles que promuevan la tranquilidad y confianza de las familias en su día a día.",
+    ]
+
   },
   // {
   //   color: "gray",
