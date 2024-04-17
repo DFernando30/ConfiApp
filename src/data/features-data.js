@@ -8,7 +8,7 @@ export const featuresData = [
   {
 
     color: "blue-600",
-    title: "Misión y visión",
+    title: "Misión y Visión",
     icon: CogIcon,
     description: [
       "MISIÓN: Facilitar la supervisión y comunicación efectiva entre tutores y menores a su cargo, con nuestra plataforma accesible y estable. "

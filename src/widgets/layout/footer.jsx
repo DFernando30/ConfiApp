@@ -125,6 +125,11 @@ Footer.defaultProps = {
         // },
 
         {
+          name: "Gmail",
+          path: " https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Fmail.google.com%2Fmail%2Fu%2F0%2F&emr=1&followup=https%3A%2F%2Fmail.google.com%2Fmail%2Fu%2F0%2F&osid=1&passive=1209600&service=mail&ifkv=ARZ0qKK84_p62Uzq4dP8LuMNCb6G6rL-3Bzp2RmHOMfs1in-dhlyADDwQX5h3e7ZDORKXHJrtIXe&theme=mn&ddm=0&flowName=GlifWebSignIn&flowEntry=ServiceLogin"
+        },
+
+        {
           name: "Facebook",
           path: "https://es-la.facebook.com/",
         },
@@ -132,11 +137,11 @@ Footer.defaultProps = {
           name: "instagram",
           path: "https://www.instagram.com/?hl=en",
         },
-        {
-          name: "Play Store",
-          path: "https://www.appcracy.com/app/google-play-store/download/",
-        },
-
+        // {
+        //   name: "Play Store",
+        //   path: "https://www.appcracy.com/app/google-play-store/download/",
+        // },
+       
 
 
 
